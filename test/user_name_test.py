@@ -1,19 +1,19 @@
 import pytest
 from unittest import TestCase
 
-from username import UserName
+from user_name import UserName
 
 
 class TestUserName(TestCase):
 
   def testTygerTygerIsAvailable(self):
-    userName = UserName()
+    userName      = UserName()
     existingNames = set(["MasterOfDisaster",
                          "DingBat",
                          "Orpheus",
                          "WolfMan",
                          "MrKnowItAll"])
-    newName = "TygerTyger"
+    newName       = "TygerTyger"
 
     suggestedName = userName.newMember(existingNames, newName)
 
@@ -21,7 +21,7 @@ class TestUserName(TestCase):
 
 
   def testTygerTygerIsTaken(self):
-    userName = UserName()
+    userName      = UserName()
     existingNames = set(["MasterOfDisaster",
                          "TygerTyger1",
                          "DingBat",
@@ -29,8 +29,28 @@ class TestUserName(TestCase):
                          "TygerTyger",
                          "WolfMan",
                          "MrKnowItAll"])
-    newName = "TygerTyger"
+    newName       = "TygerTyger"
 
     suggestedName = userName.newMember(existingNames, newName)
 
     self.assertEqual("TygerTyger2", suggestedName)
+
+
+#  def testTygerTygerWithLargeVariantButNoBase(self):
+#    userName      = UserName()
+#    existingNames = set(["TygerTyger2000",
+#                         "TygerTyger1",
+#                         "MasterDisaster",
+#                         "DingBat",
+#                         "Orpheus",
+#                         "WolfMan",
+#                         "MrKnowItAll"])
+#    newName       = "TygerTyger"
+#
+#    suggestedName = userName.newMember(existingNames, newName)
+#
+#    self.assertEqual("TygerTyger", suggestedName)
+#
+#
+#  def testCaseSensitiveUserNames(self):
+#
