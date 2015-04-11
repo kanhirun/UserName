@@ -15,7 +15,7 @@ class TestUserName(TestCase):
     newName       = "TygerTyger"
     userName      = UserName(existingNames)
 
-    suggestedName = userName.newMember(existingNames, newName)
+    suggestedName = userName.newMember(newName)
 
     self.assertEqual("TygerTyger", suggestedName)
 
@@ -31,7 +31,7 @@ class TestUserName(TestCase):
     newName       = "TygerTyger"
     userName      = UserName(existingNames)
 
-    suggestedName = userName.newMember(existingNames, newName)
+    suggestedName = userName.newMember(newName)
 
     self.assertEqual("TygerTyger2", suggestedName)
 
@@ -47,7 +47,7 @@ class TestUserName(TestCase):
 #                         "MrKnowItAll"])
 #    newName       = "TygerTyger"
 #
-#    suggestedName = userName.newMember(existingNames, newName)
+#    suggestedName = userName.newMember(newName)
 #
 #    self.assertEqual("TygerTyger", suggestedName)
 #

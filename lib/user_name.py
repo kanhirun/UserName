@@ -4,21 +4,23 @@ class UserName(object):
     self.existingNames = existingNames
 
 
-  def newMember(self, existingNames, newName):
+  def newMember(self, newName):
     if self.isNameTaken(newName):
-      return self.suggestNameFor(newName) 
+      suggestedName = self.suggestName(newName)
+
+      return suggestedName
     else:
       return newName 
 
 
-  def suggestNameFor(self, newName):
-    variant       = 1  # an incremental key appended to the userName to make
+  def suggestName(self, oldName):
+    variant       = 1  # an incremental key added to the userName to make
                        # userName unique 
-    suggestedName = newName + str(variant)
+    suggestedName = oldName + str(variant)
 
     while self.isNameTaken(suggestedName):
       variant += 1
-      suggestedName = newName + str(variant)
+      suggestedName = oldName + str(variant)
 
     return suggestedName
 
