@@ -7,13 +7,13 @@ from user_name import UserName
 class TestUserName(TestCase):
 
   def testTygerTygerIsAvailable(self):
-    userName      = UserName()
     existingNames = set(["MasterOfDisaster",
                          "DingBat",
                          "Orpheus",
                          "WolfMan",
                          "MrKnowItAll"])
     newName       = "TygerTyger"
+    userName      = UserName(existingNames)
 
     suggestedName = userName.newMember(existingNames, newName)
 
@@ -21,7 +21,6 @@ class TestUserName(TestCase):
 
 
   def testTygerTygerIsTaken(self):
-    userName      = UserName()
     existingNames = set(["MasterOfDisaster",
                          "TygerTyger1",
                          "DingBat",
@@ -30,6 +29,7 @@ class TestUserName(TestCase):
                          "WolfMan",
                          "MrKnowItAll"])
     newName       = "TygerTyger"
+    userName      = UserName(existingNames)
 
     suggestedName = userName.newMember(existingNames, newName)
 
