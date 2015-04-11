@@ -13,7 +13,7 @@ class UserName(object):
 
   def suggestNameFor(self, newName):
     variant       = 1  # an incremental key appended to the userName to make
-                       # it userName unique 
+                       # userName unique 
     suggestedName = newName + str(variant)
 
     while self.isNameTaken(suggestedName):
